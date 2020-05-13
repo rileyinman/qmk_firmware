@@ -135,7 +135,19 @@
 //#define WS2812_DMA_CHANNEL 7                  // DMA channel for TIMx_UP
 //#define WS2812_EXTERNAL_PULLUP
 #define RGB_DI_PIN A1
-#define RGBLED_NUM 9
-#define RGBLIGHT_ANIMATIONS
+
+#ifdef RGB_DI_PIN
+  #define RGBLED_NUM 9
+  #define DRIVER_LED_TOTAL RGBLED_NUM
+  #define RGBLIGHT_SLEEP
+  #define RGBLIGHT_ANIMATIONS
+  #define RGBLIGHT_LAYERS
+#endif
+
+#define WS2812_PWM_DRIVER PWMD2
+#define WS2812_PWM_CHANNEL 2
+#define WS2812_PWM_PAL_MODE 1
+#define WS2812_DMA_STREAM STM32_DMA1_STREAM2
+#define WS2812_DMA_CHANNEL 2
 
 #endif
