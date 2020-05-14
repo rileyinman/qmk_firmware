@@ -114,14 +114,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------------------------------------------------------'
  */
 [_SYMBOLS] = LAYOUT_planck_grid(
-  KC_TILD,        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-  LCTL_T(KC_GRV), KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
+  KC_TILD,        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
+  LCTL_T(KC_GRV), KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PIPE,
   KC_DOT,         KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, _______,
   KC_MPLY,        _______, _______, _______, KC_DEL,  _______, _______, _______, _______, _______, _______, _______
 ),
 [_DSYMBOLS] = LAYOUT_planck_grid(
-  DV_TILD,        DV_EXLM, DV_AT,   DV_HASH, DV_DLR,  DV_PERC, DV_CIRC, DV_AMPR, DV_ASTR, DV_LPRN, DV_RPRN, DV_PIPE,
-  LCTL_T(DV_GRV), DV_1,    DV_2,    DV_3,    DV_4,    DV_5,    DV_6,    DV_7,    DV_8,    DV_9,    DV_0,    DV_BSLS,
+  DV_TILD,        DV_EXLM, DV_AT,   DV_HASH, DV_DLR,  DV_PERC, DV_CIRC, DV_AMPR, DV_ASTR, DV_LPRN, DV_RPRN, DV_BSLS,
+  LCTL_T(DV_GRV), DV_1,    DV_2,    DV_3,    DV_4,    DV_5,    DV_6,    DV_7,    DV_8,    DV_9,    DV_0,    DV_PIPE,
   DV_DOT,         DV_MINS, DV_UNDS, DV_EQL,  DV_PLUS, _______, _______, DV_LCBR, DV_LBRC, DV_RBRC, DV_RCBR, _______,
   KC_MPLY,        _______, _______, _______, KC_DEL,  _______, _______, _______, _______, _______, _______, _______
 ),
