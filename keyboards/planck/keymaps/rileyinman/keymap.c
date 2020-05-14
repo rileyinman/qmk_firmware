@@ -401,7 +401,7 @@ void encoder_update(bool clockwise) {
         tap_code(KC_MS_WH_UP);
         tap_code(KC_MS_WH_UP);
       #else
-        tap_code(KC_PGDN);
+        tap_code(KC_PGUP);
       #endif
     }
   } else if (IS_LAYER_ON(_SYMBOLS) || IS_LAYER_ON(_DSYMBOLS)) {
