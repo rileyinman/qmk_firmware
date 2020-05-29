@@ -27,7 +27,9 @@ void eeconfig_init_user(void) {
 }
 
 void matrix_init_user(void) {
-  steno_set_mode(STENO_MODE_GEMINI);
+  #ifdef STENO_ENABLE
+    steno_set_mode(STENO_MODE_GEMINI);
+  #endif
 }
 
 void suspend_power_down_user(void) {
