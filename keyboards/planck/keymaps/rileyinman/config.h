@@ -27,6 +27,9 @@
   #define DISABLE_RGB_MATRIX_BAND_SPIRAL_VAL
   #define DISABLE_RGB_MATRIX_RAINDROPS
   #define DISABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+
+  // Suspend lighting to match computer status
+  #define RGB_DISABLE_WHEN_USB_SUSPENDED true
 #endif
 
 #ifdef ENCODER_ENABLE
