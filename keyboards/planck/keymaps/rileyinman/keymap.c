@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |-------+-------+-------+-------+-------+-------++-------+-------+-------+-------+-------+-------|
  * |   `   |   1   |   2   |   3   |   4   |   5   ||   6   |   7   |   8   |   9   |   0   |   \   |
  * |-------+-------+-------+-------+-------+-------++-------+-------+-------+-------+-------+-------|
- * |   .   |   -   |   _   |   +   |   =   |       ||       |   {   |   [   |   ]   |   }   |       |
+ * |       |   -   |   _   |   +   |   =   |       ||       |   {   |   [   |   ]   |   }   |       |
  * |-------+-------+-------+-------+-------+-------++-------+-------+-------+-------+-------+-------|
  * | Music |       |       |       |  Del  |                |       |       |       |       |       |
  * `------------------------------------------------------------------------------------------------'
@@ -116,13 +116,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYMBOLS] = LAYOUT_planck_grid(
   KC_TILD,        KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSLS,
   LCTL_T(KC_GRV), KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PIPE,
-  KC_DOT,         KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, _______,
+  _______,        KC_MINS, KC_UNDS, KC_EQL,  KC_PLUS, _______, _______, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, _______,
   KC_MPLY,        _______, _______, _______, KC_DEL,  _______, _______, _______, _______, _______, _______, _______
 ),
 [_DSYMBOLS] = LAYOUT_planck_grid(
   DV_TILD,        DV_EXLM, DV_AT,   DV_HASH, DV_DLR,  DV_PERC, DV_CIRC, DV_AMPR, DV_ASTR, DV_LPRN, DV_RPRN, DV_BSLS,
   LCTL_T(DV_GRV), DV_1,    DV_2,    DV_3,    DV_4,    DV_5,    DV_6,    DV_7,    DV_8,    DV_9,    DV_0,    DV_PIPE,
-  DV_DOT,         DV_MINS, DV_UNDS, DV_EQL,  DV_PLUS, _______, _______, DV_LCBR, DV_LBRC, DV_RBRC, DV_RCBR, _______,
+  _______,        DV_MINS, DV_UNDS, DV_EQL,  DV_PLUS, _______, _______, DV_LCBR, DV_LBRC, DV_RBRC, DV_RCBR, _______,
   KC_MPLY,        _______, _______, _______, KC_DEL,  _______, _______, _______, _______, _______, _______, _______
 ),
 
@@ -248,7 +248,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-uint8_t base_layer_mode;
+#ifdef RGB_MATRIX_ENABLE
+  uint8_t base_layer_mode;
+#endif
 
 void keyboard_post_init_user(void) {
   #ifdef RGB_MATRIX_ENABLE
@@ -263,19 +265,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case RGB_MOD:
     case RGB_RMOD:
-      base_layer_mode = rgb_matrix_get_mode();
+      #ifdef RGB_MATRIX_ENABLE
+        base_layer_mode = rgb_matrix_get_mode();
+      #endif
       return true;
       break;
     case GAMES:
       if (record->event.pressed) {
         if (current_layer == _GAMES) {
-          stop_all_notes();
-          PLAY_SONG(planck_song);
+          #ifdef AUDIO_ENABLE
+            stop_all_notes();
+            PLAY_SONG(planck_song);
+          #endif
           layer_off(_GAMES);
         } else {
-          stop_all_notes();
-          // TODO: Define this song
-          // PLAY_SONG(games_song);
+          #ifdef AUDIO_ENABLE
+            stop_all_notes();
+            // TODO: Define this song
+            // PLAY_SONG(games_song);
+          #endif
           layer_on(_GAMES);
         }
       }
@@ -284,13 +292,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DGAMES:
       if (record->event.pressed) {
         if (current_layer == _DGAMES) {
-          stop_all_notes();
-          PLAY_SONG(planck_song);
+          #ifdef AUDIO_ENABLE
+            stop_all_notes();
+            PLAY_SONG(planck_song);
+          #endif
           layer_off(_DGAMES);
         } else {
-          stop_all_notes();
-          // TODO: Define this song
-          // PLAY_SONG(games_song);
+          #ifdef AUDIO_ENABLE
+            stop_all_notes();
+            // TODO: Define this song
+            // PLAY_SONG(games_song);
+          #endif
           layer_on(_DGAMES);
         }
       }
