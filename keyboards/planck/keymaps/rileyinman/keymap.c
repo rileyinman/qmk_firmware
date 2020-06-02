@@ -257,6 +257,8 @@ void keyboard_post_init_user(void) {
     base_layer_mode = rgb_matrix_get_mode();
     rgb_matrix_sethsv_noeeprom(HSV_RED);
   #endif
+
+  dip_switch_read(true);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
